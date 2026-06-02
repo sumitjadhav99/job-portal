@@ -1,0 +1,20 @@
+const JobCard = ({ job, onSaveJob }) => {
+	return (
+		<div className="job-card">
+			<div className="job-info">
+				<h2 className="job-title">{job.title}</h2>
+				<div className="job-meta">
+					<p className="job-company">{job.company}</p>
+					<p className="job-location">{job.location}</p>
+					<p className="job-salary">{job.salary}</p>
+				</div>
+			</div>
+
+			<button className="apply-btn">Apply</button>
+
+			<button onClick={onSaveJob}>Save</button>
+		</div>
+	);
+};
+
+export default JobCard;
