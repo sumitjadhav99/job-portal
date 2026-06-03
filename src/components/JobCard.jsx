@@ -1,4 +1,4 @@
-const JobCard = ({ job, onSaveJob }) => {
+const JobCard = ({ job, onSaveJob, showRemoveButton, onRemoveJob}) => {
 	return (
 		<div className="job-card">
 			<div className="job-info">
@@ -12,7 +12,11 @@ const JobCard = ({ job, onSaveJob }) => {
 
 			<button className="apply-btn">Apply</button>
 
-			<button onClick={onSaveJob}>Save</button>
+			{showRemoveButton ? (
+				<button onClick={() => onRemoveJob(job.id)}>Remove</button>
+			) : (
+				<button onClick={() => onSaveJob(job)}>Save</button>
+			)}
 		</div>
 	);
 };

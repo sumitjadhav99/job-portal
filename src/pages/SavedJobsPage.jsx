@@ -1,9 +1,21 @@
-const SavedJobsPage = () => {
-  return (
-      <div>
-          <h1>Saved Jobs</h1>
-    </div>
-  )
-}
+import JobCard from "../components/JobCard";
 
-export default SavedJobsPage
+const SavedJobsPage = ({ savedJobs,  onRemoveJob}) => {
+	return (
+		<div>
+			<h1>Saved Jobs</h1>
+			<ul>
+				{savedJobs.map((job) => (
+					<JobCard
+						key={job.id}
+						job={job}
+						showRemoveButton={true}
+						onRemoveJob={onRemoveJob}
+					/>
+				))}
+			</ul>
+		</div>
+	);
+};
+
+export default SavedJobsPage;

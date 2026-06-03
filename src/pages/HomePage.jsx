@@ -1,10 +1,8 @@
 import JobCard from '../components/JobCard';
 import MainLayout from '../layouts/MainLayout';
 import '../css/HomePage.css';
-import { useState } from 'react';
 
-const HomePage = () => {
-	const [savedCount, setSavedCount] = useState(0);
+const HomePage = ({ savedJobs, setSavedJobs }) => {
 
 	const jobs = [
 		{
@@ -28,26 +26,35 @@ const HomePage = () => {
 			location: 'Bangalore',
 			salary: '₹12 LPA',
 		},
-  ];
-  
-  const handleSavedJob = () => {
-    setSavedCount(savedCount + 1)
-  }
+	];
+
+	const handleSavedJob = (job) => {
+
+		const alreadySaved = savedJobs.find((savedJob) => savedJob.id === job.id);
+
+		if (!alreadySaved) {
+			setSavedJobs([...savedJobs, job]);
+		}
+	};
 
 	return (
 		<MainLayout>
 			<h1>Job Portal App</h1>
 
-			<h2>Saved Jobs: {savedCount}</h2>
-			<button onClick={() => setSavedCount(savedCount + 1)}>
-				Add saved job
-			</button>
+			<h2>Saved Jobs: {savedJobs.length}</h2>
+			<h3>Saved Jobs List</h3>
+
+			<ul>
+				{savedJobs.map((job) => (
+					<li key={job.id}>{job.title}</li>
+				))}
+			</ul>
 
 			{jobs.map((job) => (
 				<JobCard
 					key={job.id}
-          job={job}
-          onSaveJob = {handleSavedJob}
+					job={job}
+					onSaveJob={handleSavedJob}
 				/>
 			))}
 		</MainLayout>
