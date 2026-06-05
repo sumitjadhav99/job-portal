@@ -3,35 +3,11 @@ import MainLayout from '../layouts/MainLayout';
 import '../css/HomePage.css';
 import { useState } from 'react';
 
-const HomePage = ({ savedJobs, setSavedJobs }) => {
+const HomePage = ({ savedJobs, setSavedJobs, jobs }) => {
 	const [searchTerm, setSearchTerm] = useState('');
 
-	const jobs = [
-		{
-			id: 1,
-			title: 'Frontend Developer',
-			company: 'Google',
-			location: 'Pune',
-			salary: '₹8 LPA',
-		},
-		{
-			id: 2,
-			title: 'React Developer',
-			company: 'Microsoft',
-			location: 'Mumbai',
-			salary: '₹10 LPA',
-		},
-		{
-			id: 3,
-			title: 'UI Developer',
-			company: 'Amazon',
-			location: 'Bangalore',
-			salary: '₹12 LPA',
-		},
-	];
-
 	const handleSavedJob = (job) => {
-		const alreadySaved = savedJobs.find((savedJob) => savedJob.id === job.id);
+		const alreadySaved = savedJobs.find((savedJob) => String(savedJob.id) === String(job.id));
 
 		if (!alreadySaved) {
 			setSavedJobs([...savedJobs, job]);

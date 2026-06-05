@@ -1,4 +1,6 @@
-const JobCard = ({ job, onSaveJob, showRemoveButton, onRemoveJob}) => {
+import { Link } from 'react-router-dom';
+
+const JobCard = ({ job, onSaveJob, showRemoveButton, onRemoveJob }) => {
 	return (
 		<div className="job-card">
 			<div className="job-info">
@@ -11,6 +13,8 @@ const JobCard = ({ job, onSaveJob, showRemoveButton, onRemoveJob}) => {
 			</div>
 
 			<button className="apply-btn">Apply</button>
+
+			<Link to={`/jobs/${job.id}`}>View Details</Link>
 
 			{showRemoveButton ? (
 				<button onClick={() => onRemoveJob(job.id)}>Remove</button>
