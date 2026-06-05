@@ -1,15 +1,25 @@
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import SavedJobsPage from './pages/SavedJobsPage';
-import { useState } from 'react';
 const App = () => {
-	const [savedJobs, setSavedJobs] = useState([]);
+	const [savedJobs, setSavedJobs] = useState(() => {
+		const storedJobs = localStorage.getItem('savedJobs');
+		const parsedJobs = JSON.parse(storedJobs);
+		return parsedJobs || [];
+	});
 
 	const handleRemoveJob = (id) => {
-		const updatedJobs = savedJobs.map((job) => job.id !== id);
+		const updatedJobs = savedJobs.filter((job) => {
+			return job.id !== id;
+		});
 
 		setSavedJobs(updatedJobs);
 	};
+
+	useEffect(() => {
+		localStorage.setItem('savedJobs', JSON.stringify(savedJobs));
+	}, [savedJobs]);
 
 	return (
 		<BrowserRouter>

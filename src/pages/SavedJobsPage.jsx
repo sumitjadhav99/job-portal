@@ -5,6 +5,8 @@ const SavedJobsPage = ({ savedJobs,  onRemoveJob}) => {
 		<div>
 			<h1>Saved Jobs</h1>
 			<ul>
+				{savedJobs.length === 0 && (<p>No saved jobs yet</p>)}
+
 				{savedJobs.map((job) => (
 					<JobCard
 						key={job.id}
