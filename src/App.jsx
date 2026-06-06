@@ -4,31 +4,9 @@ import HomePage from './pages/HomePage';
 import SavedJobsPage from './pages/SavedJobsPage';
 import JobDetailsPage from './pages/JobDetailsPage';
 const App = () => {
-	// const jobs = [
-	// 	{
-	// 		id: 1,
-	// 		title: 'Frontend Developer',
-	// 		company: 'Google',
-	// 		location: 'Pune',
-	// 		salary: '₹8 LPA',
-	// 	},
-	// 	{
-	// 		id: 2,
-	// 		title: 'React Developer',
-	// 		company: 'Microsoft',
-	// 		location: 'Mumbai',
-	// 		salary: '₹10 LPA',
-	// 	},
-	// 	{
-	// 		id: 3,
-	// 		title: 'UI Developer',
-	// 		company: 'Amazon',
-	// 		location: 'Bangalore',
-	// 		salary: '₹12 LPA',
-	// 	},
-	// ];
-
 	const [jobs, setJobs] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
 	const [savedJobs, setSavedJobs] = useState(() => {
 		const storedJobs = localStorage.getItem('savedJobs');
 		const parsedJobs = JSON.parse(storedJobs);
@@ -41,7 +19,6 @@ const App = () => {
 		});
 
 		setSavedJobs(updatedJobs);
-
 	};
 
 	useEffect(() => {
@@ -55,7 +32,12 @@ const App = () => {
 			})
 			.then((data) => {
 				setJobs(data);
-			});
+				setLoading(false);
+			})
+			.catch((error) => {
+				setError(error);
+				setLoading(false)
+		})
 	}, []);
 
 	return (
@@ -68,6 +50,8 @@ const App = () => {
 							savedJobs={savedJobs}
 							setSavedJobs={setSavedJobs}
 							jobs={jobs}
+							loading={loading}
+							error={error}
 						/>
 					}
 				/>

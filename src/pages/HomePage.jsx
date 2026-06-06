@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout';
 import '../css/HomePage.css';
 import { useState } from 'react';
 
-const HomePage = ({ savedJobs, setSavedJobs, jobs }) => {
+const HomePage = ({ savedJobs, setSavedJobs, jobs, loading, error}) => {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	const handleSavedJob = (job) => {
@@ -13,6 +13,14 @@ const HomePage = ({ savedJobs, setSavedJobs, jobs }) => {
 			setSavedJobs([...savedJobs, job]);
 		}
 	};
+
+	if (loading) {
+		return <h1>Loading...</h1>;
+	}
+
+	if (error) {
+		return <h1>Something went wrong</h1>;
+	}
 
 	const filteredJobs = jobs.filter((job) => {
 		return job.title.toLowerCase().includes(searchTerm.toLowerCase());
