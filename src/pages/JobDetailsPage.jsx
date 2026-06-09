@@ -1,4 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
+import '../css/JobDetailsPage.css';
 
 const JobDetailsPage = ({ jobs }) => {
 	const { id } = useParams();
@@ -21,14 +22,14 @@ const JobDetailsPage = ({ jobs }) => {
 	}
 
 	return (
-		<>
+		<div className="job-details">
 			<h1>{job.title}</h1>
 			<p>{job.company}</p>
 			<p>{job.location}</p>
 			<p>{job.salary}</p>
 
-			<Link to="/">Back to Jobs</Link>
-		</>
+			<Link to="/" className='back-btn'>Back to Jobs</Link>
+		</div>
 	);
 };
 

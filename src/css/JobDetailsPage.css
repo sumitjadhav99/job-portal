@@ -1,0 +1,29 @@
+.job-details {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 24px;
+
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.job-details h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.job-details p {
+    margin: 12px 0;
+    font-size: 18px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: #2563eb;
+    color: white;
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+}

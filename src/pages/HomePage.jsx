@@ -40,6 +40,7 @@ const HomePage = ({ savedJobs, setSavedJobs, jobs, loading, error}) => {
 			</ul>
 
 			<input
+				className='search-input'
 				type="text"
 				placeholder="Search jobs..."
 				value={searchTerm}

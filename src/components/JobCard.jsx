@@ -12,15 +12,17 @@ const JobCard = ({ job, onSaveJob, showRemoveButton, onRemoveJob }) => {
 				</div>
 			</div>
 
-			<button className="apply-btn">Apply</button>
+			<div className="job-actions">
+				<button className="apply-btn">Apply</button>
 
-			<Link to={`/jobs/${job.id}`}>View Details</Link>
+				<Link to={`/jobs/${job.id}`} className='action-btn'>View Details</Link>
 
-			{showRemoveButton ? (
-				<button onClick={() => onRemoveJob(job.id)}>Remove</button>
-			) : (
-				<button onClick={() => onSaveJob(job)}>Save</button>
-			)}
+				{showRemoveButton ? (
+					<button onClick={() => onRemoveJob(job.id)}>Remove</button>
+				) : (
+					<button onClick={() => onSaveJob(job)} className='save-btn'>Save</button>
+				)}
+			</div>
 		</div>
 	);
 };
