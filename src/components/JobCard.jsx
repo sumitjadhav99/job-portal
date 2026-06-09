@@ -18,7 +18,7 @@ const JobCard = ({ job, onSaveJob, showRemoveButton, onRemoveJob }) => {
 				<Link to={`/jobs/${job.id}`} className='action-btn'>View Details</Link>
 
 				{showRemoveButton ? (
-					<button onClick={() => onRemoveJob(job.id)}>Remove</button>
+					<button onClick={() => onRemoveJob(job.id)} className='remove-btn'>Remove</button>
 				) : (
 					<button onClick={() => onSaveJob(job)} className='save-btn'>Save</button>
 				)}

@@ -26,7 +26,7 @@ const App = () => {
 	}, [savedJobs]);
 
 	useEffect(() => {
-		fetch('http://localhost:3000/jobs')
+		fetch('/jobs.json')
 			.then((response) => {
 				return response.json();
 			})

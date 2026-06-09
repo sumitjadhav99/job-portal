@@ -1,0 +1,23 @@
+ [
+    {
+      "id": 1,
+      "title": "Frontend Developer",
+      "company": "Google",
+      "location": "Pune",
+      "salary": "₹8 LPA"
+    },
+    {
+      "id": 2,
+      "title": "React Developer",
+      "company": "Microsoft",
+      "location": "Mumbai",
+      "salary": "₹10 LPA"
+    },
+    {
+      "id": 3,
+      "title": "UI Developer",
+      "company": "Amazon",
+      "location": "Bangalore",
+      "salary": "₹12 LPA"
+    }
+  ]
