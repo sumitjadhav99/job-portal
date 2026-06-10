@@ -1,16 +1,94 @@
-# React + Vite
+# Job Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based Job Portal application that allows users to browse jobs, search for opportunities, save jobs for later, and view detailed job information.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* Browse available job listings
+* Search jobs by title
+* View detailed job information
+* Save jobs to local storage
+* Remove saved jobs
+* Dynamic routing with React Router
+* Loading and error handling states
+* Responsive design for mobile and desktop
+* Deployed on Vercel
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React
+* React Router DOM
+* JavaScript (ES6+)
+* CSS3
+* Fetch API
+* Local Storage
+* Vite
+* Vercel
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+src/
+├── components/
+├── pages/
+├── css/
+├── App.jsx
+└── main.jsx
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone <https://github.com/sumitjadhav99/job-portal>
+```
+
+2. Navigate to the project directory
+
+```bash
+cd job-portal
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Run the development server
+
+```bash
+npm run dev
+```
+
+5. Open the application in your browser
+
+```text
+http://localhost:5173
+```
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+## Live Demo
+
+https://job-portal-blush-gamma.vercel.app/
+
+## Learning Outcomes
+
+This project helped me practice:
+
+* React component architecture
+* State management with useState
+* Side effects with useEffect
+* API data fetching
+* React Router and dynamic routes
+* Local Storage persistence
+* Responsive web design
+* Debugging and problem solving
+
+## Author
+
+Sumit Jadhav
